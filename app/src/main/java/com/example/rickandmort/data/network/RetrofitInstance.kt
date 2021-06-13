@@ -2,7 +2,7 @@ package com.example.rickandmorty.data.network
 
 
 import com.example.rickandmort.data.network.CharactersAPI
-import com.example.rickandmort.utils.Constants.BASE_URL
+import com.example.rickandmort.usecases.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

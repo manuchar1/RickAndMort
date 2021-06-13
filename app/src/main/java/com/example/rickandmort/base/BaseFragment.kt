@@ -1,6 +1,7 @@
 package com.example.rickandmort.base
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,9 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.example.rickandmort.R
+import com.example.rickandmort.databinding.DialogProgressBinding
 import com.google.android.material.snackbar.Snackbar
 
-class BaseFragment : Fragment() {
+open class BaseFragment : Fragment() {
+
+    private lateinit var mProgressDialog:Dialog
 
 
 
@@ -37,26 +41,26 @@ class BaseFragment : Fragment() {
         view?.let { Snackbar.make(it, message, Snackbar.LENGTH_LONG).setAnchorView(requireView()) }
 
 
-/*            Snackbar.make(getv, message, Snackbar.LENGTH_LONG)
-        val snackBarView = snackBar.view
-
-        if (errorMessage) {
-            snackBarView.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireActivity(),
-                    R.color.colorSnackBarError
-                )
-            )
-        }else{
-            snackBarView.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireActivity(),
-                    R.color.colorSnackBarSuccess
-                )
-            )
-        }
-        snackBar.show()*/
-
     }
+
+    fun Fragment.showProgressDialog(text: String) {
+        val dialog = Dialog(requireContext())
+
+        val dialogBinding = DialogProgressBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
+
+
+        dialogBinding.tvProgressText.text = text
+    //    mProgressDialog.setCancelable(false)
+//        mProgressDialog.setCanceledOnTouchOutside(false)
+        mProgressDialog.show()
+    }
+
+    fun hideProgressDialog() {
+        mProgressDialog.dismiss()
+    }
+
+
 
 }

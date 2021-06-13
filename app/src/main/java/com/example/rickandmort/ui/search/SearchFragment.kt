@@ -17,8 +17,8 @@ import com.example.rickandmort.databinding.FragmentSearchBinding
 import com.example.rickandmort.main.MainActivity
 import com.example.rickandmort.main.MainViewModel
 import com.example.rickandmort.usecases.Resourcee
-import com.example.rickandmort.utils.Constants
-import com.example.rickandmort.utils.Constants.SEARCH_TIME_DELAY
+import com.example.rickandmort.usecases.Constants
+import com.example.rickandmort.usecases.Constants.SEARCH_TIME_DELAY
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay

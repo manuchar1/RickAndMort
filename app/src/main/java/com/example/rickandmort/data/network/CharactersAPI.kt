@@ -3,7 +3,7 @@ package com.example.rickandmort.data.network
 
 
 import com.example.rickandmort.data.models.CharacterResponse
-import com.example.rickandmort.utils.Constants.API_ENDPOINT
+import com.example.rickandmort.usecases.Constants.API_ENDPOINT
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

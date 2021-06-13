@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">RickAndMort</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="please_wait">Please Wait…</string>
+    <string name="err_msg_enter_email">Enter email</string>
+    <string name="err_msg_enter_password">Enter password</string>
+    <string name="msg_success">You are logged in successfully</string>
 </resources>

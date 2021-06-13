@@ -1,4 +1,4 @@
-package com.example.rickandmort.utils
+package com.example.rickandmort.usecases
 
 object Constants {
 

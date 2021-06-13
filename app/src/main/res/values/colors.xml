@@ -12,4 +12,6 @@
     <color name="darker_late_gray">#24282f</color>
     <color name="placeholderColor">#D1D1D1</color>
     <color name="bottom_navigation_color">#9F9F9F</color>
+    <color name="colorPrimaryText">#222934</color>
+    <color name="grey_900">#212121</color>
 </resources>

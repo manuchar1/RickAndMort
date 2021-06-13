@@ -16,13 +16,9 @@ import com.example.rickandmort.databinding.FragmentHomeBinding
 import com.example.rickandmort.main.MainActivity
 import com.example.rickandmort.main.MainViewModel
 import com.example.rickandmort.usecases.Resourcee
-import com.example.rickandmort.utils.Constants.QUERY_PAGE_SIZE
+import com.example.rickandmort.usecases.Constants.QUERY_PAGE_SIZE
 
 class HomeFragment : Fragment() {
-
-    // private val charactersAdapter = CharactersAdapter()
-
-    //val viewModel by viewModels<HomeViewModel>()
 
     lateinit var viewModel: MainViewModel
     lateinit var charactersAdapterr: CharactersAdapter
@@ -38,7 +34,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       // binding?.recyclerView?.showShimmer()
+        // binding?.recyclerView?.showShimmer()
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding?.root
 
@@ -46,12 +42,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-         viewModel = (activity as MainActivity).viewModel
+        viewModel = (activity as MainActivity).viewModel
 
         setupRecyclerView()
         charactersAdapterr.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putSerializable("character",it)
+                putSerializable("character", it)
             }
             findNavController().navigate(
                 R.id.action_homeFragment_to_detailsFragment,
@@ -66,18 +62,17 @@ class HomeFragment : Fragment() {
             when (response) {
                 is Resourcee.Success -> {
                     binding?.recyclerView?.hideShimmer()
-                    hideProgressBar()
                     response.data?.let { characterResponse ->
                         charactersAdapterr.differ.submitList(characterResponse.results.toList())
                         val totalPages = characterResponse.info.count / QUERY_PAGE_SIZE + 2
                         isLastPage = viewModel.charactersPage == totalPages
                         if (isLastPage) {
-                            binding?.recyclerView?.setPadding(0,0,0,0)
+                            binding?.recyclerView?.setPadding(0, 0, 0, 0)
                         }
                     }
                 }
                 is Resourcee.Error -> {
-                    hideProgressBar()
+                    binding?.recyclerView?.hideShimmer()
                     response.message?.let { message ->
                         Log.e(TAG, "an error accured:$message ")
 
@@ -85,7 +80,7 @@ class HomeFragment : Fragment() {
                 }
                 is Resourcee.Loading -> {
                     binding?.recyclerView?.showShimmer()
-                    showProgressBar()
+
                 }
 
             }
@@ -95,19 +90,6 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun hideProgressBar() {
-        binding?.progressBar?.visibility = View.INVISIBLE
-        isLoading = false
-    }
-
-    private fun showProgressBar() {
-        binding?.progressBar?.visibility = View.VISIBLE
-        isLoading = true
-    }
-
-
-
-
     var isLoading = false
     var isLastPage = false
     var isScrolling = false
@@ -115,7 +97,7 @@ class HomeFragment : Fragment() {
     val scrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
-            if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL ) {
+            if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
                 isScrolling = true
             }
         }

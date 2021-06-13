@@ -3,6 +3,8 @@
     <item android:drawable="@color/white"/>
     <item
         android:drawable="@drawable/rick_and_morty_decal"
-        android:gravity="center">
+        android:gravity="center"
+        android:width="100dp"
+        android:height="100dp">
     </item>
 </layer-list>
