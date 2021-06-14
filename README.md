@@ -8,11 +8,11 @@
 აპლიკაციის აგებისას გამოყენებული მეთოდები:
 
 MVVM, 
-Single Activity
-Navigation component
-Safe Args
-Room library
-Paging library 3
-Firebase
-Firebase email password authentication
+Single Activity,
+Navigation component,
+Safe Args,
+Room library,
+Paging library 3,
+Firebase,
+Firebase email password authentication,
 
